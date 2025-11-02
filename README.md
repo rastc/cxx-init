@@ -1,20 +1,8 @@
-# CXX Init - Designated Initializer Library
+A C++14 script that provides designated initializer
 
-A C++14 library that provides designated initializer
-
-## Try it Online
+## Godbolt
 
 [https://godbolt.org/z/xbdvdjejd](https://godbolt.org/z/xbdvdjejd)
-
-## Installation
-
-### Cloning the Repository
-
-```bash
-git clone --recursive https://github.com/rastc/cxx-init.git
-cd cxx-init
-```
-
 
 ## Usage
 
