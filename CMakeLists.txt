@@ -8,12 +8,15 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Find Boost (modern CMake approach)
-find_package(Boost 1.70 REQUIRED)
-if(TARGET Boost::boost)
-    message(STATUS "Boost found: ${Boost_VERSION}")
+# Add Boost as subdirectory (from submodule)
+set(BOOST_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/third_party/boost)
+if(EXISTS ${BOOST_ROOT})
+    message(STATUS "Using Boost submodule at: ${BOOST_ROOT}")
+    # For header-only libraries, we just need the include path
+    add_library(boost_headers INTERFACE)
+    target_include_directories(boost_headers INTERFACE ${BOOST_ROOT})
 else()
-    message(FATAL_ERROR "Boost not found! Please install Boost using vcpkg, conan, or system package manager.")
+    message(FATAL_ERROR "Boost submodule not found! Run 'git submodule update --init --recursive'")
 endif()
 
 # Set output directories
@@ -34,8 +37,8 @@ set(HEADERS
 # Create executable
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
-# Link Boost libraries
-target_link_libraries(${PROJECT_NAME} PRIVATE Boost::boost)
+# Link Boost headers
+target_link_libraries(${PROJECT_NAME} PRIVATE boost_headers)
 
 # Add include directories
 target_include_directories(${PROJECT_NAME} PRIVATE

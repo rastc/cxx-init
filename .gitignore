@@ -29,9 +29,6 @@ Makefile
 *.idb
 *.ilk
 
-# Local Boost installation (we'll use external)
-boost/
-
 # IDE files
 .vscode/
 *.swp

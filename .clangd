@@ -5,6 +5,7 @@ CompileFlags:
     - -Wextra
     - -Wpedantic
     - -I.
+    - -Ithird_party/boost
   Remove:
     - -W*
     - -std=*

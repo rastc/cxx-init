@@ -13,32 +13,21 @@ A C++14 library that provides designated initializer syntax using Boost.Preproce
 
 - C++14 compatible compiler
 - CMake 3.16 or higher
-- Boost 1.70 or higher (headers only)
+- Git (for submodules)
 
 ## Installation
 
-### Installing Boost
+### Cloning the Repository
 
-#### Option 1: vcpkg (Recommended)
 ```bash
-vcpkg install boost
+git clone --recursive https://github.com/rastc/cxx-init.git
+cd cxx-init
 ```
 
-#### Option 2: System Package Manager
+If you already cloned without `--recursive`, initialize the submodules:
 
-**Ubuntu/Debian:**
 ```bash
-sudo apt-get install libboost-dev
-```
-
-**macOS (Homebrew):**
-```bash
-brew install boost
-```
-
-**Windows (Chocolatey):**
-```bash
-choco install boost-msvc-14.3
+git submodule update --init --recursive
 ```
 
 ### Building the Project
