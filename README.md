@@ -1,6 +1,10 @@
 # CXX Init - Designated Initializer Library
 
-A C++11 library that provides designated initializer
+A C++11 library that provides designated initializer syntax using Boost.Preprocessor macros.
+
+## Try it Online
+
+[![Try on Godbolt](https://img.shields.io/badge/try-godbolt-blue.svg)](https://godbolt.org/z/Ez1TW7G4v)
 
 ## Installation
 
@@ -10,6 +14,7 @@ A C++11 library that provides designated initializer
 git clone --recursive https://github.com/rastc/cxx-init.git
 cd cxx-init
 ```
+
 
 ## Usage
 

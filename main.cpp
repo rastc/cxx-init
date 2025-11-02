@@ -1,17 +1,16 @@
 #include "cxx_init.h"
 
-#include <string>
 #include <cstdio>
 
 struct Person {
-    std::string name;
+    const char* name;
     int age;
-    std::string city;
+    const char* city;
     double height;
 
     void print() const 
     {
-        printf("%s is %d years old from %s\n", name.c_str(), age, city.c_str());
+        printf("%s is %d years old from %s\n", name, age, city);
     }
 };
 
