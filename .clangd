@@ -5,7 +5,7 @@ CompileFlags:
     - -Wextra
     - -Wpedantic
     - -I.
-    - -Ithird_party/boost
+    - -Ithird_party/boost_preprocessor/include
   Remove:
     - -W*
     - -std=*

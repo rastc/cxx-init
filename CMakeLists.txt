@@ -4,19 +4,19 @@ cmake_minimum_required(VERSION 3.16)
 project(cxx VERSION 1.0.0 LANGUAGES CXX)
 
 # Set C++ standard
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Add Boost as subdirectory (from submodule)
-set(BOOST_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/third_party/boost)
-if(EXISTS ${BOOST_ROOT})
-    message(STATUS "Using Boost submodule at: ${BOOST_ROOT}")
+# Add Boost.Preprocessor from submodule
+set(BOOST_PREPROCESSOR_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/third_party/boost_preprocessor)
+if(EXISTS ${BOOST_PREPROCESSOR_ROOT}/include)
+    message(STATUS "Using Boost.Preprocessor submodule at: ${BOOST_PREPROCESSOR_ROOT}")
     # For header-only libraries, we just need the include path
-    add_library(boost_headers INTERFACE)
-    target_include_directories(boost_headers INTERFACE ${BOOST_ROOT})
+    add_library(boost_preprocessor INTERFACE)
+    target_include_directories(boost_preprocessor INTERFACE ${BOOST_PREPROCESSOR_ROOT}/include)
 else()
-    message(FATAL_ERROR "Boost submodule not found! Run 'git submodule update --init --recursive'")
+    message(FATAL_ERROR "Boost.Preprocessor submodule not found! Run 'git submodule update --init --recursive'")
 endif()
 
 # Set output directories
@@ -37,8 +37,8 @@ set(HEADERS
 # Create executable
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
-# Link Boost headers
-target_link_libraries(${PROJECT_NAME} PRIVATE boost_headers)
+# Link Boost.Preprocessor headers
+target_link_libraries(${PROJECT_NAME} PRIVATE boost_preprocessor)
 
 # Add include directories
 target_include_directories(${PROJECT_NAME} PRIVATE
