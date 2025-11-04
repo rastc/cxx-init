@@ -1,4 +1,4 @@
-A C++14 script that provides designated initializer
+Designated initializer pre c++ 20
 
 ## Godbolt
 
